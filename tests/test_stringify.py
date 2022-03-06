@@ -1,9 +1,10 @@
 import unittest
 from .context import json_stable_stringify_python as stringify
 
+
 class TestStringify(unittest.TestCase):
     def test_simple_object(self):
-        node = {'c':6, 'b': [4,5], 'a': 3, 'z': None}
+        node = {'c': 6, 'b': [4, 5], 'a': 3, 'z': None}
         actual = stringify.stringify(node)
         expected = '{"a":3,"b":[4,5],"c":6,"z":null}'
         self.assertEqual(actual, expected)
@@ -18,7 +19,7 @@ class TestStringify(unittest.TestCase):
         node = {
             'a': {
                 'b': {
-                    'c': [1,2,3,None]
+                    'c': [1, 2, 3, None]
                 }
             }
         }
@@ -49,6 +50,7 @@ class TestStringify(unittest.TestCase):
         actual = stringify.stringify(node)
         expected = '[1,""]'
         self.assertEqual(actual, expected)
+
 
 if __name__ == '__main__':
     unittest.main()
